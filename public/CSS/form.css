@@ -1,0 +1,178 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f5f7;
+  padding: 20px;
+}
+
+/* Stats section */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-bottom: 30px;
+}
+
+/* Group cards in pairs */
+.stat-pair {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 6px;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Individual stat card */
+.stat-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 6px;
+  padding: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+
+.stat-card h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ✅ Combined Stat Card (Sales + Orders only) */
+.stat-card.combined {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-card.combined .stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-card.combined .divider {
+  width: 1px;
+  background: #ddd; /* divider line */
+  height: 100%;
+}
+
+.green h2 { color: #27ae60; }
+.red h2 { color: #e74c3c; }
+
+/* Dashboard layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Table */
+.table-box {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #000;
+  color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* Standalone Form Card */
+.form-card {
+  background: #f9f9f9;
+  border: 2px solid #fffffe;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 300px;
+}
+
+.form-card h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e67e22;
+  border-bottom: 2px solid #e67e22;
+  padding-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save {
+  background: #e67e22;
+  color: #fff;
+}
+
+.clear {
+  background: #ccc;
+  color: #000;
+}

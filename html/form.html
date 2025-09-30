@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Dashboard</title>
+  <link rel="stylesheet" href="/public/CSS/form.css">
+</head>
+
+<body>
+
+  <!-- Main layout -->
+  <div class="dashboard">
+
+    <!-- Left side: Stats cards -->
+    <div class="stats">
+
+      <!-- Combined Sales + Orders -->
+      <div class="stat-card combined">
+        <div class="stat-item">
+          <h2>UGX 50,000,000</h2>
+          <p>Sales</p>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <h2>UGX 15,000,000</h2>
+          <p>Orders</p>
+        </div>
+      </div>
+
+      <!-- Separate In Stock + Out of Stock -->
+      <div class="stat-pair">
+        <div class="stat-card green">
+          <h2>UGX 42,000,000</h2>
+          <p>In stock</p>
+        </div>
+        <div class="stat-card red">
+          <h2>5</h2>
+          <p>Out of stock</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Form -->
+    <div class="form-card">
+      <h3>Add Product</h3>
+      <form>
+        <input type="text" placeholder="Product Name" required>
+        <input type="text" placeholder="Category" required>
+        <input type="number" placeholder="Price" required>
+        <input type="number" placeholder="Quantity" required>
+        <div class="row">
+          <input type="text" placeholder="Color" required>
+          <input type="file">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="save">SAVE</button>
+          <button type="reset" class="clear">CLEAR</button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Bottom: Table -->
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>CATEGORY</th>
+            <th>PRICE (UGX)</th>
+            <th>QUANTITY</th>
+            <th>IMAGE</th> <!-- NEW COLUMN -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#645341</td>
+            <td>Samsung S25+ Ultra</td>
+            <td>Smart Phones</td>
+            <td>6,900,000</td>
+            <td>981</td>
+            <td>No Image</td>
+          </tr>
+          <tr>
+            <td>#645346</td>
+            <td>Gucci XXL Shirt</td>
+            <td>Fashion</td>
+            <td>500,000</td>
+            <td>100</td>
+            <td>No Image</td>
+          </tr>
+          <tr>
+            <td>#645342</td>
+            <td>XL Zara Shirt</td>
+            <td>Fashion</td>
+            <td>600,000</td>
+            <td>56</td>
+            <td>No Image</td>
+          </tr>
+          <tr>
+            <td>#645344</td>
+            <td>iPhone 15</td>
+            <td>Smart Phones</td>
+            <td>7,900,000</td>
+            <td>752</td>
+            <td>No Image</td>
+          </tr>
+          <tr>
+            <td>#645343</td>
+            <td>Smart home Curtain</td>
+            <td>Interior Design</td>
+            <td>500,000</td>
+            <td>30</td>
+            <td>No Image</td>
+          </tr>
+          <tr>
+            <td>#645345</td>
+            <td>Spectrum Laptop 14.6 Inc</td>
+            <td>Laptops</td>
+            <td>15,800,000</td>
+            <td>144</td>
+            <td>No Image</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/public/js/form.js"></script>
+</body>
+
+</html>
