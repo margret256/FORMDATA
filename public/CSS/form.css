@@ -176,3 +176,9 @@ button {
   background: #ccc;
   color: #000;
 }
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+  display: block;
+}

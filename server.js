@@ -1,19 +1,17 @@
 const express = require("express");
+const session = require("express-session");
+const flash = require("connect-flash");
 const mongoose = require("mongoose");
 const path = require("path");
-const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const productsRoutes = require("./routes/productsRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
-// MongoDB Connection
+// MongoDB connection
 mongoose
-  .connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/vendorDashboard", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/vendorDashboard")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -21,12 +19,22 @@ mongoose
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use("/public", express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: "yourSecretKey",
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use(flash());
+
+
+// Serve static files from /public at root
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use("/products", productsRoutes);
+app.use("/", dashboardRoutes);
 
 // 404 handler
 app.use((req, res) => {

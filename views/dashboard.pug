@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    title Vendor Dashboard
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js")
+    style.
+      .card { text-align:center; padding:20px; margin-bottom:20px; border-radius:12px; }
+      .btn-save { background-color: darkorange; color: white; width: 50%; }
+      .btn-clear { background-color: #ccc; color: black; width: 50%; }
+      .stats-card { padding: 30px; }
+      .button { display: flex;  gap:20px}
+      
+
+  body.container.mt-5
+    .row
+      .col-md-6
+        // Sales + Orders
+        .card.text-center.stats-card.mb-3
+          .row
+            .col-6.border-end
+              h3 UGX #{stats.totalSales.toLocaleString()}
+              p Sales
+            .col-6
+              h3 UGX #{stats.totalOrders.toLocaleString()}
+              p Orders
+
+        // In stock + Out of stock
+        .row.text-center
+          .col-6
+            .card.text-success.p-3
+              h3 UGX #{stats.totalStock.toLocaleString()}
+              p In stock
+          .col-6
+            .card.text-danger.p-3
+              h3 5
+              p Out of stock
+
+      .col-md-6
+        // Add Product form
+        .card.p-4.shadow-sm
+          h4.mb-3 Add Product
+          form.needs-validation(action="/dashboard" method="POST" novalidate)
+            .mb-2
+              input.form-control(type="text" name="name" placeholder="Product Name" required)
+              .invalid-feedback Invalid field
+            .mb-2
+              input.form-control(type="text" name="category" placeholder="Category" required)
+              .invalid-feedback Invalid field
+            .mb-2
+              input.form-control(type="number" name="price" placeholder="Price" required)
+              .invalid-feedback Invalid field
+            .mb-2
+              input.form-control(type="number" name="quantity" placeholder="Quantity" required)
+              .invalid-feedback Invalid field
+            .row.mb-2
+              .col-6
+                input.form-control(type="text" name="color" placeholder="Color" required)
+                .invalid-feedback Invalid field
+              .col-6
+                input.form-control(type="text" name="upload_image" placeholder="Upload Image" required)
+                .invalid-feedback Invalid field
+            // Buttons
+            .button
+              button.btn.btn-save(type="submit") SAVE
+              button.btn.btn-clear(type="reset") CLEAR
+
+    // Product List
+    table.table.table-bordered
+      thead.table-dark
+        tr
+          th ID
+          th NAME
+          th CATEGORY
+          th PRICE(UGX)
+          th QUANTITY
+      tbody
+        each p, i in products
+          tr
+            td #{'#' + (645341 + i)} 
+            td #{p.name}
+            td #{p.category}
+            
+            td #{p.price.toLocaleString()}
+            td #{p.quantity}
+
+    script.
+      // Bootstrap validation JS
+      (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
